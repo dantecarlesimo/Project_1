@@ -6,4 +6,15 @@
   </aside>
 </div>
 
+  <% @scenarios.each do |scenario| %>
+     
+      <%= link_to(scenario.title, scenario) %><br>
+      
+    <% end %>
+
+ <%= button_to "New Loan Scenario", {controller: :scenarios, action: :new}, :method => :get, :class => "buttons" %><br />
+
+<%= button_to "Sign Out", {controller: :sessions, action: :destroy}, :method => :delete, :class => "buttons" %><br />
+
+
 

@@ -7,6 +7,7 @@ development:
   adapter: postgresql
   database: mortgage_app_development
   pool: 5
+  # username: mortgage_app
   timeout: 5000
 
 # Warning: The database defined as "test" will be erased and
@@ -16,10 +17,12 @@ test:
   adapter: postgresql
   database: mortgage_app_development
   pool: 5
+  # username: mortgage_app
   timeout: 5000
 
 production:
   adapter: postgresql
   database: mortgage_app_development
   pool: 5
+  # username: mortgage_app
   timeout: 5000

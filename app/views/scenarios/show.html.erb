@@ -1,0 +1,25 @@
+<ul class="nav nav-pills">
+  <li><%= link_to('Create New Scenario', new_scenario_path) %></li>
+  <li><%= link_to('Edit Scenario', edit_scenario_path(@scenario)) %></li>
+  <li><%= link_to('Delete Scenario', @scenario, :method => :delete, :confirm => 'Are you sure?') %></li>
+  <div class='spacer'></div>
+</ul>
+
+<div class="row">
+  <div class="col-md-5 col-sm-5">
+    <p class="lead">Title:<%= @scenario.title %></p>
+    <p class="lead">Income:<%= @scenario.income%></p>
+
+    <p class="lead">Rent/Mtg:<%= @scenario.housing_exp %></p>
+
+    <p class="lead">Other Expenses:<%= @scenario.other_exp %></p>
+
+    <p class="lead">Credit Score:<%= @scenario.credit_score%></p>
+
+
+
+
+  </div>
+ </div>
+  <%= button_to "Edit", {controller: :scenarios, action: :edit}, :method => :get, :class => "buttons" %><br />
+
