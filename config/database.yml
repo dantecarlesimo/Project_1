@@ -23,6 +23,8 @@ test:
 production:
   adapter: postgresql
   database: mortgage_app_development
+  host:localhost
+  port:5432
   pool: 5
   # username: mortgage_app
   timeout: 5000
