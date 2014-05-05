@@ -7,6 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+ <!-- <audio src="/assets/money.mp3" autoplay></audio> -->
+
     <%flash.each do|key,value|%>
                 <div class="alert alert-<%=key%>"> <%=value%> </div>
         <%end%>

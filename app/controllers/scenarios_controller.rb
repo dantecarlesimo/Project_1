@@ -1,9 +1,9 @@
 class ScenariosController < ApplicationController
 
-#     include RecipesHelper
+     include ScenariosHelper
 
-   before_filter :signed_in_user, only: [:create, :new, :edit, :update, :destroy, :show] #located in session helpers
-  # before_filter :check_recipe_owner, only: [:edit, :update, :destroy]
+   before_filter :signed_in_user, only: [:create, :new, :edit, :update, :destroy] #located in session helpers
+   before_filter :check_scenario_owner, only: [:edit, :update, :destroy, :show]
 
 #   def index
 #     @recipes = Recipe.all
@@ -14,7 +14,8 @@ class ScenariosController < ApplicationController
   end
 
   def create
-    scenario = Scenario.create scenario_params
+    #scenario = Scenario.create scenario_params
+    scenario = current_user.scenarios.create scenario_params
     #scenario.user_id = 5 #change to current user 
     #scenario.user_id=User.find(session[:user_id])
     #scenario.save

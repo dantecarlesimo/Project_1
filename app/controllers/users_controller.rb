@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+  before_filter :signed_in_user, only: [:edit, :update, :destroy, :show] #located in session helpers
+  before_filter :check_user, only: [:edit, :update, :destroy, :show]
+
+
   def show
     @user = User.find(params[:id])
     @scenarios= @user.scenarios
