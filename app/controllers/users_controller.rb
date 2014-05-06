@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  require 'typhoeus'
+  require 'json'
 
   before_filter :signed_in_user, only: [:edit, :update, :destroy, :show] #located in session helpers
   before_filter :check_user, only: [:edit, :update, :destroy, :show]
@@ -7,6 +9,14 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @scenarios= @user.scenarios
+    zwsid = ENV['ZILLOW_KEY']
+    
+    request = Typhoeus.get("http://www.zillow.com/webservice/GetRateSummary.htm?zws-id=#{zwsid}&output=json") 
+    result = JSON.parse(request.body)
+    @thirty_year_fixed = result['response']['today']['thirtyYearFixed']
+    @fifteen_year_fixed = result['response']['today']['fifteenYearFixed']
+    @five_one_adjust = result['response']['today']['fiveOneARM']
+
 
   end
 
