@@ -2,7 +2,10 @@
 <h1>Sign in</h1>
 <!-- <audio src="/assets/money.mp3" autoplay></audio> -->
   
-
+<h2>TODAYS MORTGAGE RATES</h2><br><br>
+<h4>30 Year Fixed: <%= @thirty_year_fixed %> </h4><br>
+<h4>15 Year Fixed: <%= @fifteen_year_fixed %> </h4><br>
+<h4>5/1 Adjustable: <%= @five_one_adjust %> </h4><br><br>
 <div class="row">
   <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
     <%= form_for(:session, url: sessions_path) do |f| %>

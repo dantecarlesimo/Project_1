@@ -24,7 +24,8 @@ class ScenariosController < ApplicationController
 
   def show
     @scenario = Scenario.find(params[:id])
-    rate=@scenario.rate/100.00/12.00
+    api_caller
+    rate=@thirty_year_fixed.to_f/100.00/12.00
     n=360
     #P = L[c(1 + c)n]/[(1 + c)n - 1]
     @monthly_payment=(@scenario.loan_amount*(rate*(1+rate)**n)/((1+rate)**n-1)).round(2)
@@ -34,6 +35,8 @@ class ScenariosController < ApplicationController
     disposable_income_1 = @scenario.income-@scenario.housing_exp-@scenario.other_exp
     disposable_income_2 = @scenario.income-@monthly_payment-@scenario.other_exp
     @disp_income_diff = (disposable_income_2 - disposable_income_1).round(2)
+
+    api_caller
   end
 
   def edit

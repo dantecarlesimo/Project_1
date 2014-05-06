@@ -6,4 +6,13 @@ class ApplicationController < ActionController::Base
   include UsersHelper
 
   protect_from_forgery with: :exception
+
+    zwsid = ENV['ZILLOW_KEY']
+    
+    request = Typhoeus.get("http://www.zillow.com/webservice/GetRateSummary.htm?zws-id=#{zwsid}&output=json") 
+    result = JSON.parse(request.body)
+    @thirty_year_fixed = result['response']['today']['thirtyYearFixed']
+    @fifteen_year_fixed = result['response']['today']['fifteenYearFixed']
+    @five_one_adjust = result['response']['today']['fiveOneARM']
+
 end

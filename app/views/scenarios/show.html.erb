@@ -18,12 +18,17 @@
     <p class="lead">Home Purchase Price: $<%= @scenario.purchase_price%></p>
     <p class="lead">Mortgage Loan Amount: $<%= @scenario.loan_amount%></p>
     <p class="lead">Loan Program:<%= @scenario.program%></p>
-    <p class="lead">Today's Rate:<%= @scenario.rate%>%</p>
+    <p class="lead">Today's Rate:<%= @thirty_year_fixed%>%</p>
     <p class="lead">Monthly Payment:<%= @monthly_payment%></p>
 
 
     <p class="lead">Debt to Income Ratio (DTI): <%= @dti %>%</p>
     <p class="lead">Change in Disposable Income: $<%= @disp_income_diff%></p>
+<br>
+=============================================================================
+    <h4>30 Year Fixed: <%= @thirty_year_fixed %> </h4><br>
+<h4>15 Year Fixed: <%= @fifteen_year_fixed %> </h4><br>
+<h4>5/1 Adjustable: <%= @five_one_adjust %> </h4><br>
 
 
 

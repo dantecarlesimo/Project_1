@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    api_caller
   end
 
   def create
