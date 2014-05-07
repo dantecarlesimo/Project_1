@@ -12,8 +12,13 @@ module ScenariosHelper
     
     request = Typhoeus.get("http://www.zillow.com/webservice/GetRateSummary.htm?zws-id=#{zwsid}&output=json") 
     result = JSON.parse(request.body)
-    @thirty_year_fixed = result['response']['today']['thirtyYearFixed']
-    @fifteen_year_fixed = result['response']['today']['fifteenYearFixed']
-    @five_one_adjust = result['response']['today']['fiveOneARM']
+    #Todays rates
+    @thirty_year_fixed = result['response']['today']['thirtyYearFixed'].to_f.round(2)
+    @fifteen_year_fixed = result['response']['today']['fifteenYearFixed'].to_f.round(2)
+    @five_one_adjust = result['response']['today']['fiveOneARM'].to_f.round(2)
+    #Last week's rates
+    @thirty_year_fixed_last_week = result['response']['lastWeek']['thirtyYearFixed'].to_f.round(2)
+    @fifteen_year_fixed_last_week = result['response']['lastWeek']['fifteenYearFixed'].to_f.round(2)
+    @five_one_adjust_last_week = result['response']['today']['fiveOneARM'].to_f.round(2)
   end
 end

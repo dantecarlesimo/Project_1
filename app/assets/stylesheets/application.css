@@ -33,7 +33,18 @@
   /*padding-bottom: 20px;
 }
 */
+body {
+  background-image: url(wood_1.png);
+  color:white;
+}
 
+input {
+  color: black;
+}
+
+h1,h2,h3,h4,h5,p{
+  color:white;
+}
 #blue {
   background-color: lightblue;
 }

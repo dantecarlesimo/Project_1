@@ -1,13 +1,10 @@
-<br><br>
-<h1>Sign in</h1>
-<!-- <audio src="/assets/money.mp3" autoplay></audio> -->
-  
-<h2>TODAYS MORTGAGE RATES</h2><br><br>
-<h4>30 Year Fixed: <%= @thirty_year_fixed %> </h4><br>
-<h4>15 Year Fixed: <%= @fifteen_year_fixed %> </h4><br>
-<h4>5/1 Adjustable: <%= @five_one_adjust %> </h4><br><br>
+<br>
+<h1>WELCOME TO VIRTUAL MORTGAGE ADVISOR</h1><br><br>
+
 <div class="row">
-  <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+  <div class="col-md-4">
+    <h4>Sign in to create your custom mortgage scenario</h4><br><br>
+  <!-- <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3"> -->
     <%= form_for(:session, url: sessions_path) do |f| %>
 
       <%= f.label :email %>
@@ -21,4 +18,40 @@
 
     <p>New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>
+
+<div class="col-md-8">
+<table class="table">
+  <tr>
+      <th colspan="4"><h3>Mortgage Rates</h3>
+      </th>
+  </tr>
+  <tr>
+      <th>Program</th>
+      <th>Today</th>
+      <th>Last Week</th>
+      <th>Change</th>
+  </tr>
+  <tr>
+      <td>30 Year Fixed</td>
+      <td><%= @thirty_year_fixed%>%</td>
+      <td><%= @thirty_year_fixed_last_week%>%</td>
+      <td><%= (@thirty_year_fixed-@thirty_year_fixed_last_week).round(2)%>
+  </tr>
+    <tr>
+      <td>15 Year Fixed</td>
+      <td><%= @fifteen_year_fixed%>%</td>
+      <td><%= @fifteen_year_fixed_last_week%>%</td>
+      <td><%= (@fifteen_year_fixed-@fifteen_year_fixed_last_week).round(2)%>
+   </tr>
+    <tr>
+      <td>5/1 Adjustable Rate</td>
+      <td><%= @five_one_adjust%>%</td>
+      <td><%= @five_one_adjust_last_week %>%</td>
+      <td><%= (@five_one_adjust-@five_one_adjust_last_week).round(2)%>
+   </tr>
+</table>
+</div>
+
+
+
 </div>
