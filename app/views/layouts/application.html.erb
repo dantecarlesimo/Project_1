@@ -7,15 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<div class="container">
+
   <%= render 'layouts/header' %>
- 
- <!-- <audio src="/assets/money.mp3" autoplay></audio> -->
-
-    <%flash.each do|key,value|%>
+    <div class="row">
+      <div class="col-md-12 col-sm-12"><br><br><br>
+        <%flash.each do|key,value|%>
                 <div class="alert alert-<%=key%>"> <%=value%> </div>
-        <%end%>
+        <%end%> 
 
-<%= yield %>
+        <%= yield %>
+      </div>
+    </div>
+</div>
 
 </body>
 </html>

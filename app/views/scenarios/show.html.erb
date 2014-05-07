@@ -1,5 +1,5 @@
-<ul class="nav nav-pills">
-  <li><%= link_to('Create New Scenario', new_scenario_path) %></li>
+<ul class="nav nav-pills" id="blue">
+  <li id="scenario_title"><%=@scenario.title%></li>
   <li><%= link_to('Edit Scenario', edit_scenario_path(@scenario)) %></li>
   <li><%= link_to('Delete Scenario', @scenario, :method => :delete, :confirm => 'Are you sure?') %></li>
   <div class='spacer'></div>
@@ -45,5 +45,4 @@
  </div>
 <%#= render :partial => 'details' %>
 
-  <%= button_to "Edit", {controller: :scenarios, action: :edit}, :method => :get, :class => "buttons" %><br />
 

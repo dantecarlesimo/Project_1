@@ -28,13 +28,17 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params) #use new instead of create
     if @user.save
-      flash[:success] = "Welcome to the Mortgage app!"
+      flash[:success] = "Welcome to the Virtual Mortgage Advisor!"
       sign_in @user #adds a token to users browser to save info
       redirect_to @user
     else
       flash[:error] = "Failed to create account.  Try again."
       redirect_to new_user_path
     end
+  end
+
+  def edit
+    @user= User.find(params[:id])
   end
 
   def update

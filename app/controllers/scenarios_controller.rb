@@ -12,12 +12,13 @@ class ScenariosController < ApplicationController
   end
 
   def create
-    #scenario = Scenario.create scenario_params
-    scenario = current_user.scenarios.create scenario_params
-    #scenario.user_id = 5 #change to current user 
-    #scenario.user_id=User.find(session[:user_id])
-    #scenario.save
-    redirect_to(scenario)
+    @scenario = current_user.scenarios.new scenario_params
+      if @scenario.save
+      redirect_to @scenario
+    else
+      flash[:error] = "Failed to create new scenario.  Please complete all fields."
+      redirect_to new_scenario_path
+    end
   end
 
   def show

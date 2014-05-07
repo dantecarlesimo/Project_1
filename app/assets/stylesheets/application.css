@@ -33,3 +33,14 @@
   /*padding-bottom: 20px;
 }
 */
+
+#blue {
+  background-color: lightblue;
+}
+
+#scenario_title{
+  padding-top: 2px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-size: x-large;
+}
