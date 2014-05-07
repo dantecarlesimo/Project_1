@@ -34,6 +34,7 @@ class ScenariosController < ApplicationController
     disposable_income_1 = @scenario.income-@scenario.housing_exp-@scenario.other_exp
     disposable_income_2 = @scenario.income-@monthly_payment-@scenario.other_exp
     @disp_income_diff = (disposable_income_2 - disposable_income_1).round(2)
+    @approval = approval(@dti)
     #15 year fixed rate calculations
     rate_2=@fifteen_year_fixed.to_f/100.00/12.00
     n_2=180
@@ -42,6 +43,7 @@ class ScenariosController < ApplicationController
     disposable_income_3 = @scenario.income-@scenario.housing_exp-@scenario.other_exp
     disposable_income_4 = @scenario.income-@monthly_payment_2-@scenario.other_exp
     @disp_income_diff_2 = (disposable_income_4 - disposable_income_3).round(2)
+    @approval_2= approval(@dti_2)
     #5/1 ARM rate calculations
     rate_3=@five_one_adjust.to_f/100.00/12.00
     n_3=360
@@ -50,6 +52,7 @@ class ScenariosController < ApplicationController
     disposable_income_5 = @scenario.income-@scenario.housing_exp-@scenario.other_exp
     disposable_income_6 = @scenario.income-@monthly_payment_3-@scenario.other_exp
     @disp_income_diff_3 = (disposable_income_6 - disposable_income_5).round(2)
+    @approval_3 = approval(@dti_3)
 
 
     api_caller
@@ -75,6 +78,18 @@ class ScenariosController < ApplicationController
     def scenario_params
       params.require(:scenario).permit(:income, :housing_exp, :other_exp, :credit_score, :purchase_price, :loan_amount, :rate, :program, :title, :user_id)  
     end
+
+    def approval(dti)
+      if dti < 44.00 && @scenario.credit_score >= 740
+        return "Excellent"
+      elsif dti <44.00 && @scenario.credit_score >=680 
+        return "Good"
+      elsif dti <44.00 && @scenario.credit_score >=600
+        return "Fair"
+      elsif dti >= 44.00 || @scenario.credit_score < 600
+        return "Poor"
+      end
+    end    
 
 
 
