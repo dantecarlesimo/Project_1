@@ -7,14 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="menu_bar">
-    <% if current_user.nil? %>
-    <p>Please Sign In</p>
-    <%else%>
-  <p>Hello, <%=current_user.first_name%> <%=current_user.last_name%></p>
-  <%end%>
-  <%= button_to "Sign Out", {controller: :sessions, action: :destroy}, :method => :delete, :class => "buttons1", :id => "signoutbutton"%>
-  </div>
+  <%= render 'layouts/header' %>
+ 
  <!-- <audio src="/assets/money.mp3" autoplay></audio> -->
 
     <%flash.each do|key,value|%>

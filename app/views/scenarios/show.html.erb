@@ -10,11 +10,13 @@
  
 <h3>=================================================================================</h3>
 <h3><%=current_user.first_name%> <%=current_user.last_name%></h3>
+<h4>Users Information</h4>
     <p class="lead">Income:<%= @scenario.income%></p>
     <p class="lead">Current Housing Expense:<%= @scenario.housing_exp%></p>
     <p class="lead">Other Monthly Expenses:<%= @scenario.other_exp%></p>
     <p class="lead">Credit Score:<%= @scenario.credit_score%></p><br><br>
 
+<h4>Property Information</h4>
     <p class="lead">Home Purchase Price: $<%= @scenario.purchase_price%></p>
     <p class="lead">Mortgage Loan Amount: $<%= @scenario.loan_amount%></p>
     <p class="lead">Loan Program:<%= @scenario.program%></p>

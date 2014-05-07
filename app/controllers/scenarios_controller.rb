@@ -5,9 +5,7 @@ class ScenariosController < ApplicationController
    before_filter :signed_in_user, only: [:create, :new, :edit, :update, :destroy] #located in session helpers
    before_filter :check_scenario_owner, only: [:edit, :update, :destroy, :show]
 
-#   def index
-#     @recipes = Recipe.all
-#   end
+
 
   def new
     @scenario = Scenario.new
