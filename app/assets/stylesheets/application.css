@@ -39,8 +39,12 @@
 }
 
 #scenario_title{
-  padding-top: 2px;
+  padding-top: 1px;
   padding-right: 10px;
   padding-left: 10px;
-  font-size: x-large;
+  font-size: 30px;
+}
+
+h3 {
+  text-decoration: underline;
 }
