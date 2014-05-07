@@ -10,7 +10,9 @@
 </div><br>
 <div>
   <h3>Your Mortgage Loan Scenarios</h3>
-
+  <% if @scenarios==[] %>
+  <p>You don't have any loan scenarios yet! Click "New Loan Scenario" at the top of the page to start.</p>
+  <%end%>
   <% @scenarios.each do |scenario| %>
      
       <h4><%= link_to(scenario.title, scenario) %></h4><br>

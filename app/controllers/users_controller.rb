@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @scenarios= @user.scenarios
+    #binding.pry
     # zwsid = ENV['ZILLOW_KEY']
     api_caller
     # request = Typhoeus.get("http://www.zillow.com/webservice/GetRateSummary.htm?zws-id=#{zwsid}&output=json") 
