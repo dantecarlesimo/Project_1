@@ -7,10 +7,7 @@ class Scenario < ActiveRecord::Base
   validates :other_exp, presence: true
   validates :credit_score, presence: true
   validates :purchase_price, presence: true
-  validates :loan_amount, presence: true
-
-
-
+  # validates :loan_amount, presence: true
 
 end
 

@@ -26,36 +26,37 @@ class ScenariosController < ApplicationController
   def show
     @scenario = Scenario.find(params[:id])
     api_caller
+    #Tax and Insurance calculations
+    @taxes = ((@scenario.purchase_price * 0.01188)/12).round(2)
+    @insurance = ((@scenario.loan_amount * 0.0035)/12).round(2)
     #30 year fixed rate calculations
     rate=@thirty_year_fixed.to_f/100.00/12.00
     n=360
     @monthly_payment=(@scenario.loan_amount*(rate*(1+rate)**n)/((1+rate)**n-1)).round(2)
-    @dti = (((@monthly_payment+@scenario.other_exp).to_f/@scenario.income.to_f)*100.00).round(2) 
+    @dti = (((@monthly_payment+@scenario.other_exp+@taxes+@insurance).to_f/@scenario.income.to_f)*100.00).round(2) 
     disposable_income_1 = @scenario.income-@scenario.housing_exp-@scenario.other_exp
-    disposable_income_2 = @scenario.income-@monthly_payment-@scenario.other_exp
+    disposable_income_2 = @scenario.income-@monthly_payment-@scenario.other_exp-@taxes-@insurance
     @disp_income_diff = (disposable_income_2 - disposable_income_1).round(2)
     @approval = approval(@dti)
     #15 year fixed rate calculations
     rate_2=@fifteen_year_fixed.to_f/100.00/12.00
     n_2=180
     @monthly_payment_2=(@scenario.loan_amount*(rate_2*(1+rate_2)**n_2)/((1+rate_2)**n_2-1)).round(2)
-    @dti_2 = (((@monthly_payment_2+@scenario.other_exp).to_f/@scenario.income.to_f)*100.00).round(2) 
+    @dti_2 = (((@monthly_payment_2+@scenario.other_exp+@taxes+@insurance).to_f/@scenario.income.to_f)*100.00).round(2) 
     disposable_income_3 = @scenario.income-@scenario.housing_exp-@scenario.other_exp
-    disposable_income_4 = @scenario.income-@monthly_payment_2-@scenario.other_exp
+    disposable_income_4 = @scenario.income-@monthly_payment_2-@scenario.other_exp-@taxes-@insurance
     @disp_income_diff_2 = (disposable_income_4 - disposable_income_3).round(2)
     @approval_2= approval(@dti_2)
     #5/1 ARM rate calculations
     rate_3=@five_one_adjust.to_f/100.00/12.00
     n_3=360
     @monthly_payment_3=(@scenario.loan_amount*(rate_3*(1+rate_3)**n_3)/((1+rate_3)**n_3-1)).round(2)
-    @dti_3 = (((@monthly_payment_3+@scenario.other_exp).to_f/@scenario.income.to_f)*100.00).round(2) 
+    @dti_3 = (((@monthly_payment_3+@scenario.other_exp+@taxes+@insurance).to_f/@scenario.income.to_f)*100.00).round(2) 
     disposable_income_5 = @scenario.income-@scenario.housing_exp-@scenario.other_exp
-    disposable_income_6 = @scenario.income-@monthly_payment_3-@scenario.other_exp
+    disposable_income_6 = @scenario.income-@monthly_payment_3-@scenario.other_exp-@taxes-@insurance
     @disp_income_diff_3 = (disposable_income_6 - disposable_income_5).round(2)
     @approval_3 = approval(@dti_3)
 
-
-    api_caller
   end
 
   def edit

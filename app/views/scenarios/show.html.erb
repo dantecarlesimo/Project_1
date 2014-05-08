@@ -12,16 +12,20 @@
 
   <div>
   <h2>Borrower's Information</h2>
-      <p class="lead">Income: $<%= @scenario.income%></p>
-      <p class="lead">Current Housing Expense: $<%= @scenario.housing_exp%></p>
-      <p class="lead">Other Monthly Expenses: $<%= @scenario.other_exp%></p>
-      <p class="lead">Credit Score: <%= @scenario.credit_score%></p>
-  <div/>
+      <p class="lead">Income: <%= number_to_currency(@scenario.income)%>/mo.</p>
+      <p class="lead">Current Housing Expense: <%= number_to_currency(@scenario.housing_exp)%>/mo.</p>
+      <p class="lead">Other Expenses: <%= number_to_currency(@scenario.other_exp)%>/mo.</p>
+      <p class="lead">Credit Score:  <%= @scenario.credit_score%></p>
+      <% if @scenario.credit_score <740 %>
+      <li>Your rate may be higher due to credit score</li>
+      <%end%><br>
   <div>
   <h2>Property Information</h2>
       <p class="lead">Home Address: <%= @scenario.title%></p>
-      <p class="lead">Home Purchase Price: $<%= @scenario.purchase_price%></p>
-      <p class="lead">Mortgage Loan Amount: $<%= @scenario.loan_amount%></p>
+      <p class="lead">Home Purchase Price: <%= number_to_currency(@scenario.purchase_price)%></p>
+      <p class="lead">Mortgage Loan Amount: <%= number_to_currency(@scenario.loan_amount)%></p>
+      <p class="lead">Estimated Taxes: <%=number_to_currency(@taxes)%>/mo.</p>
+      <p class="lead">Estimated Insurance: <%= number_to_currency(@insurance)%>/mo.</p>
   </div><br><br>
 
 <div>
@@ -42,25 +46,25 @@
       <td><%= @five_one_adjust%>%</td>
   </tr>
     <tr>
-      <td>Monthly Payment:</td>
-      <td>$<%= @monthly_payment%></td>
-      <td>$<%= @monthly_payment_2%></td>
-      <td>$<%= @monthly_payment_3%></td>
+      <td>Monthly Payment (Add Tax & Insurance Pmt):</td>
+      <td><%= number_to_currency(@monthly_payment)%></td>
+      <td><%= number_to_currency(@monthly_payment_2)%></td>
+      <td><%= number_to_currency(@monthly_payment_3)%></td>
    </tr>
     <tr>
       <td>Debt to Income Ratio (DTI):</td>
-      <td>$<%= @dti%></td>
-      <td>$<%= @dti_2%></td>
-      <td>$<%= @dti_3%></td>
+      <td><%= @dti%>%</td>
+      <td><%= @dti_2%>%</td>
+      <td><%= @dti_3%>%</td>
    </tr>
     <tr>
       <td>Change in Disposable Income:</td>
-      <td>$<%= @disp_income_diff%></td>
-      <td>$<%= @disp_income_diff_2%></td>
-      <td>$<%= @disp_income_diff_3%></td>
+      <td><%= number_to_currency(@disp_income_diff)%></td>
+      <td><%= number_to_currency(@disp_income_diff_2)%></td>
+      <td><%= number_to_currency(@disp_income_diff_3)%></td>
     </tr>
     <tr>
-      <td>Probability of Loan Approval</td>
+      <td>Probability of Loan Approval:</td>
       <td><%= @approval%></td>
       <td><%= @approval_2%></td>
       <td><%= @approval_3%></td>

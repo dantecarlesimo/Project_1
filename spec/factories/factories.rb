@@ -4,7 +4,7 @@ FactoryGirl.define do
     "sally#{n}@user.com"  #makes each email unique in the factory below
   end
 
-    factory :user do
+  factory :user do
     first_name "Sally"
     last_name "User"
     email #gets filled with unique email from above
@@ -19,7 +19,8 @@ FactoryGirl.define do
     other_exp 200
     credit_score 750
     purchase_price 500000
-    loan_amount 40000
+    loan_amount 400000
+    title "Any String"
   end
 
 
