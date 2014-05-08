@@ -20,9 +20,9 @@ describe 'Scenarios Management' do
 
       expect(response).to render_template(:edit)
 
-      expect(response.body).to include("Any String",7000)
+      expect(response.body).to include("Any String","7000")
 
-      put "/scenario/#{@scenario.id}", scenario: @scenario_attributes
+      put "/scenarios/#{@scenario.id}", scenario: @scenario_attributes
 
       @scenario.reload
       @scenario.title.should eq("A different string")
@@ -37,9 +37,7 @@ describe 'Scenarios Management' do
 
       expect(response).to render_template(:show)
 
-      expect(response.body).to include("Any String",7000, 200)
-
-      @scenario.title.should eq("Any String")
+      expect(response.body).to include("Any String","$7,000.00")
 
     end
 

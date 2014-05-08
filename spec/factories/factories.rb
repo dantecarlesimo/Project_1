@@ -21,6 +21,7 @@ FactoryGirl.define do
     purchase_price 500000
     loan_amount 400000
     title "Any String"
+    user 
   end
 
 
