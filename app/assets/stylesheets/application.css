@@ -34,8 +34,8 @@
 }
 */
 body {
-  background-image: url(wood_1.png);
-  background-size: 100%, 100%;
+  background-image: url(dark_mosaic.png);
+  /*background-size: 100%, 100%;*/
   color:white;
 }
 
@@ -45,6 +45,10 @@ input {
 
 h1,h2,h3,h4,h5,p{
   color:white;
+}
+
+h1 {
+  text-align: center;
 }
 
 a {
