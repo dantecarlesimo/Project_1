@@ -1,21 +1,21 @@
-<h2>Borrower's Profile</h3>
+<h2>Borrower's Profile</h3><br>
 
 <div class="row">
   <aside class="col-md-4">
       <h4><%= @user.first_name %> <%=@user.last_name%></h4>
-      <h4><%= @user.email %></h4>
+      <h4><%= @user.email %></h4><br>
        <%= button_to "Edit Profile", {controller: :users, action: :edit}, :method => :get,  class: "btn btn-sm btn-primary" %> <br/>
   </aside>
 
 </div><br>
 <div>
-  <h3>Your Mortgage Loan Scenarios</h3>
+  <h2>Your Mortgage Loan Scenarios</h2>
   <% if @scenarios==[] %>
-  <p>You don't have any loan scenarios yet! Click "New Loan Scenario" at the top of the page to start.</p>
+  <p class="lead">You don't have any loan scenarios yet! Click "New Loan Scenario" at the top of the page to start.</p>
   <%end%>
   <% @scenarios.each do |scenario| %>
      
-      <h4><%= link_to(scenario.title, scenario) %></h4><br>
+      <h4><%= link_to(scenario.title, scenario) %></h4>
       
     <% end %>
 
