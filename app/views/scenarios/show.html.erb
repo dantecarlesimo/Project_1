@@ -1,3 +1,4 @@
+<!-- Renders title/tool bar for specific scenario -->
 <div class="row">
   <div class="col-md-12">
     <ul class="nav nav-pills" id="blue">
@@ -9,42 +10,43 @@
   </div>
 </div>
 
-
-  <div>
+<!-- Renders borrower and property information -->
+<div>
   <h2>Borrower's Information</h2>
-      <p class="lead">Income: <%= number_to_currency(@scenario.income)%>/mo.</p>
-      <p class="lead">Current Housing Expense: <%= number_to_currency(@scenario.housing_exp)%>/mo.</p>
-      <p class="lead">Other Expenses: <%= number_to_currency(@scenario.other_exp)%>/mo.</p>
-      <p class="lead">Credit Score:  <%= @scenario.credit_score%></p>
-      <% if @scenario.credit_score <740 %>
-      <li>Your rate may be higher due to credit score</li>
-      <%end%><br>
+    <p class="lead">Income: <%= number_to_currency(@scenario.income)%>/mo.</p>
+    <p class="lead">Current Housing Expense: <%= number_to_currency(@scenario.housing_exp)%>/mo.</p>
+    <p class="lead">Other Expenses: <%= number_to_currency(@scenario.other_exp)%>/mo.</p>
+    <p class="lead">Credit Score:  <%= @scenario.credit_score%></p>
+    <% if @scenario.credit_score <740 %>
+    <li>Your rate may be higher due to credit score</li>
+    <%end%><br>
   <div>
   <h2>Property Information</h2>
-      <p class="lead">Home Address: <%= @scenario.title%></p>
-      <p class="lead">Home Purchase Price: <%= number_to_currency(@scenario.purchase_price)%></p>
-      <p class="lead">Mortgage Loan Amount: <%= number_to_currency(@scenario.loan_amount)%></p>
-      <p class="lead">Estimated Taxes: <%=number_to_currency(@taxes)%>/mo.</p>
-      <p class="lead">Estimated Insurance: <%= number_to_currency(@insurance)%>/mo.</p>
+    <p class="lead">Home Address: <%= @scenario.title%></p>
+    <p class="lead">Home Purchase Price: <%= number_to_currency(@scenario.purchase_price)%></p>
+    <p class="lead">Mortgage Loan Amount: <%= number_to_currency(@scenario.loan_amount)%></p>
+    <p class="lead">Estimated Taxes: <%=number_to_currency(@taxes)%>/mo.</p>
+    <p class="lead">Estimated Insurance: <%= number_to_currency(@insurance)%>/mo.</p>
   </div><br><br>
-
+</div>
+<!-- Renders table of Mortgage Loan Options using rates from Zillow API -->
 <div>
   <table class="table">
-  <tr>
+    <tr>
       <th colspan="4"><h2>Mortgage Loan Options</h2> </th>
-  </tr>
-  <tr>
+    </tr>
+    <tr>
       <th></th>
       <th>30 Year Fixed</th>
       <th>15 Year Fixed</th>
       <th>5/1 Adjustable</th>
-  </tr>
-  <tr>
+    </tr>
+    <tr>
       <td>Current Interest Rate:</td>
       <td><%= @thirty_year_fixed%>%</td>
       <td><%= @fifteen_year_fixed%>%</td>
       <td><%= @five_one_adjust%>%</td>
-  </tr>
+    </tr>
     <tr>
       <td>Monthly Payment (Add Tax & Insurance Pmt):</td>
       <td><%= number_to_currency(@monthly_payment)%></td>

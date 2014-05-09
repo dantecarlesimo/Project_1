@@ -1,4 +1,5 @@
 module ScenariosHelper
+  
   def check_scenario_owner
     scenario = current_user.scenarios.where(:id => params[:id]).first
     if scenario.nil?
@@ -9,7 +10,6 @@ module ScenariosHelper
 
   def api_caller
     zwsid = ENV['ZILLOW_KEY']
-    
     request = Typhoeus.get("http://www.zillow.com/webservice/GetRateSummary.htm?zws-id=#{zwsid}&output=json") 
     result = JSON.parse(request.body)
     #Todays rates
@@ -21,4 +21,5 @@ module ScenariosHelper
     @fifteen_year_fixed_last_week = result['response']['lastWeek']['fifteenYearFixed'].to_f.round(2)
     @five_one_adjust_last_week = result['response']['today']['fiveOneARM'].to_f.round(2)
   end
+
 end

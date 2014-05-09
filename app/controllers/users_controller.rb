@@ -5,22 +5,11 @@ class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:edit, :update, :destroy, :show] #located in session helpers
   before_filter :check_user, only: [:edit, :update, :destroy, :show]
 
-
   def show
     @user = User.find(params[:id])
     @scenarios= @user.scenarios
-    #binding.pry
-    # zwsid = ENV['ZILLOW_KEY']
-    api_caller
-    # request = Typhoeus.get("http://www.zillow.com/webservice/GetRateSummary.htm?zws-id=#{zwsid}&output=json") 
-    # result = JSON.parse(request.body)
-    # @thirty_year_fixed = result['response']['today']['thirtyYearFixed']
-    # @fifteen_year_fixed = result['response']['today']['fifteenYearFixed']
-    # @five_one_adjust = result['response']['today']['fiveOneARM']
-
+    api_caller #calls api method in scenario_helper so rates can be displayed on show page
   end
-
-
 
   def new
     @user = User.new
@@ -53,4 +42,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
+    
 end

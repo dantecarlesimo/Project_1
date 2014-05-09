@@ -56,7 +56,6 @@ class ScenariosController < ApplicationController
     disposable_income_6 = @scenario.income-@monthly_payment_3-@scenario.other_exp-@taxes-@insurance
     @disp_income_diff_3 = (disposable_income_6 - disposable_income_5).round(2)
     @approval_3 = approval(@dti_3)
-
   end
 
   def edit
@@ -81,6 +80,7 @@ class ScenariosController < ApplicationController
     end
 
     def approval(dti)
+      #returns probability of approval to display on show page
       if dti < 44.00 && @scenario.credit_score >= 740
         return "Excellent"
       elsif dti <44.00 && @scenario.credit_score >=680 
@@ -90,8 +90,6 @@ class ScenariosController < ApplicationController
       elsif dti >= 44.00 || @scenario.credit_score < 600
         return "Poor"
       end
-    end    
-
-
-
+    end  
+      
 end
