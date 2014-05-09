@@ -26,6 +26,14 @@ describe User do
         user2=FactoryGirl.build(:user, email: user1.email)# .build just builds an instance but doesnt save which is what you normall use.
         user2.should_not be_valid
       end
+  end
+
+  describe 'user name' do
+      it 'should be present' do
+       user = FactoryGirl.build(:user, first_name: nil)
+       user.should_not be_valid
     end
+  end  
+
 
 end
