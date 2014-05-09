@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md-12">
     <ul class="nav nav-pills" id="blue">
-      <li id="scenario_title"><%=@scenario.title%></li>
+      <li class="prop_address"><%=@scenario.title%></li>
       <li><%= link_to('Edit Scenario', edit_scenario_path(@scenario)) %></li>
       <li><%= link_to('Delete Scenario', @scenario, :method => :delete, :confirm => 'Are you sure?') %></li>
       <div class='spacer'></div>

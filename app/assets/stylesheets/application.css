@@ -13,6 +13,9 @@
  *= require_tree .
  */
 
+#scenario_title{
+  font-size:15px;
+}
 
 body {
   background-image: url(wood_1.png);
@@ -44,7 +47,7 @@ a {
   margin-top:10px;
 }
 
-#scenario_title{
+.prop_address{
   padding-top: 1px;
   padding-right: 10px;
   padding-left: 10px;
