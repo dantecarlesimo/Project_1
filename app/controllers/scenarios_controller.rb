@@ -74,6 +74,15 @@ class ScenariosController < ApplicationController
     redirect_to(current_user)
   end
 
+  def search
+    @search = SimpleSearch.new SimpleSearch.get_params(params)
+    if @search.valid?
+      @scenarios= @search.search_within Scenario.all, :title
+    end
+    # http://localhost:3000/search?simple_search[q]=Bob
+  end
+
+
   private
     def scenario_params
       params.require(:scenario).permit(:income, :housing_exp, :other_exp, :credit_score, :purchase_price, :loan_amount, :rate, :program, :title, :user_id)  

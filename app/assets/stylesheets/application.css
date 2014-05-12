@@ -12,6 +12,14 @@
  *= require_self
  *= require_tree .
  */
+.form-control {
+  width: 75%;
+}
+
+#search {
+   float: right;
+  margin-top: -30px;
+}
 
 #scenario_title{
   font-size:15px;

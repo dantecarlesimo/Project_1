@@ -1,0 +1,46 @@
+<%= form_for(@search, url: search_path, method: :get, authenticity_token: false, :html => {:class => "form-horizontal"}) do |f| %>
+
+ <div class="form-group<%= "#{@search.errors.has_key?(:q) ? ' has-error' : ''}" %>">
+
+      <div class="col-xs-2">
+
+        <label class="control-label" for="q">Search Your Loan Scenarios</label>
+
+     </div>
+
+     <div class="col-xs-10">
+
+      <%= f.text_field :q, class: "form-control" %>
+      <%= f.submit "Search", class: "btn btn-large btn-primary", :id => "search" %>
+
+
+        <% if @search.errors.has_key?(:q) %>
+
+            <span class="help-block text-danger"><%= @search.errors[:q].first %></span>
+
+        <% end %>
+
+      </div>
+
+    </div>
+
+
+
+<% end %>
+
+
+
+<% if  !@scenarios.blank? %>
+<% @scenarios.each do |scenario| %>
+     
+      <h4><%= link_to(scenario.title, scenario) %></h4>
+      
+  <% end %>
+
+
+
+<% elsif @search.valid? %>
+
+    <p>No Matching Tracks</p>
+
+<% end %>
