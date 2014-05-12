@@ -1,4 +1,3 @@
 == README
 
-This app takes in borrower information including income and expeneses and acesses the likelyhood that they can get a mortgage. Mortgage program rates
-are pulled from Zillow.com API and used to calculate monthly payments for prospective borrowers.
+This app takes in borrower information including income and expenses and accesses the likelihood that they can get a mortgage. Mortgage program rates are pulled from Zillow.com API and used to calculate monthly payments for prospective borrowers.
