@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   require 'json'
 
   before_filter :signed_in_user, only: [:edit, :update, :destroy, :show] #located in session helpers
+  ## Nice job here.  I think many people missed this auth step.
   before_filter :check_user, only: [:edit, :update, :destroy, :show]
 
   def show

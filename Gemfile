@@ -26,6 +26,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'pg'
 
+## You don't want to have better_errors in production.
+## Best to keep it in development and test only.
 gem 'better_errors'
 
 group :doc do
