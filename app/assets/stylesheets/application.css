@@ -17,6 +17,15 @@
   font-size:15px;
 }
 
+#session_email {
+  width:230px;
+}
+
+#session_password {
+  width:230px;
+
+}
+
 body {
   background-image: url(wood_1.png);
   color:white;
@@ -24,12 +33,27 @@ body {
 
 input {
   color: black;
-  margin-top:20px;
+  margin-top:4px;
+  width:300px;
 }
 
-#signin {
-  float:right;
+label {
+  margin-top:20px;
 }
+#signin {
+  width:65px;
+  text-align: center;
+}
+
+#submit {
+  width: 75px;
+  text-align: center;
+  margin-top: 30px;
+  margin-left: 230px;
+
+}
+
+
 
 h1,h2,h3,h4,h5,p{
   color:white;
@@ -75,6 +99,49 @@ a {
     width: 135px;
     height: 25px;
     float:left;
+
+}
+
+/*label{
+  width: 9em;
+  float: left;
+  text-align: right;
+  vertical-align:center;
+  margin-right: 0.75em;
+  margin-top:1.5em;
+  display: inline-block;
+}*/
+
+/*#submit {
+  width: 300px;
+  float: right;
+  text-align: center;
+  vertical-align:center;
+  margin-right: 8.5em;
+  margin-top:1.5em;
+  display: inline-block;
+}*/
+
+/*.new_scenario.incometipcontainer {
+    position: relative;
+}
+.new_scenario.incometip {
+    display: none;
+    position: absolute;
+}
+
+#income:hover.incometip {
+    display: block;
+}
+*/
+.form_data .popup {
+  display: none;
+}
+
+.form_data:hover .popup {
+  display: block;
+  color:grey;
+  font-size: 10px;
 
 }
 

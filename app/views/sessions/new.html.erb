@@ -2,20 +2,20 @@
 <h1>WELCOME TO VIRTUAL MORTGAGE ADVISOR</h1><br><br>
 
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-4 sign-in">
     <h4>Sign in to create your custom mortgage scenario</h4><br><br>
     <%= form_for(:session, url: sessions_path) do |f| %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %> <br>
+      <%#= f.label :email %>
+      <%= f.text_field :email, :placeholder => "Email" %> <br>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%#= f.label :password %>
+      <%= f.password_field :password, :placeholder => "Password" %><br>
+          <p>New user? <%= link_to "Sign up now!", signup_path %></p><br>
 
       <%= f.submit "Sign in", class: "btn btn-large btn-primary", id: "signin" %>
     <% end %>
 
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>
 
   <div class="col-md-8">

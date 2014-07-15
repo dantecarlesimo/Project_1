@@ -1,25 +1,44 @@
+
+  
 <%= form_for(@scenario) do |f| %>
   
-      <%= f.label :Property_Address %>
-      <%= f.text_field :title %><br>
+  <%= f.label :Property_Address %><br>
+  <%= f.text_field :title, placeholder: "e.g. 123 Main Street, San Diego, CA" %><br>
 
-      <%= f.label :income %>
-      <%= f.text_field :income %><br>
+  <div class="form_data">
+    <%= f.label :income %><br>
+    $ <%= f.text_field :income, placeholder: "5500" %>
+      <div class="popup">Enter your total monthly income. If you are paid an annual salary or are self-employed simply take your yearly income and divide by 12. If you are paid Semi-Monthly multiply your usual paystub amount by 2. If you are paid Bi-Weekly take your paystub amount, multiply it by 26 and divide by 12. If you have other income (such as a rental property) just add this monthly amount to the results of your income equation. 
+      </div>
+  </div>
+  <div class="form_data">
+    <%= f.label :housing_Expense %><br>
+    $ <%= f.text_field :housing_exp, placeholder: "1200" %>
+      <div class="popup">Enter your totaly monthly housing expense. If you have a current mortgage with impounded taxes and insurance, just input your monthly mortgage payment. Otherwise, add your annual tax and insurance bills together, divide by 12 and add to your monthly mortgage payment.
+      </div>
+  </div>
+  <div class="form_data">
+    <%= f.label :other_exp %><br>
+    $ <%= f.text_field :other_exp, placeholder: "468" %>
+      <div class="popup">Add your other monthly expenses including minimum credit card, auto loan/lease, other mortgages, personal loans/lines of credit, student loans, and any other payment that would appear on your credit report (do not include utility bills, insurance payments, or anything that wouldn't appear on a credit report). 
+      </div>
+  </div>
+  <div class="form_data">
+    <%= f.label :credit_score %><br>
+    <%= f.text_field :credit_score, placeholder: "720" %>
+      <div class="popup">Your credit score must be between 500 and 850</div>
+  </div>
 
-      <%= f.label :housing_exp %>
-      <%= f.text_field :housing_exp %><br>
+      <%= f.label :purchase_price %><br>
+      $ <%= f.text_field :purchase_price, placeholder: "395000" %>
 
-      <%= f.label :other_exp %>
-      <%= f.text_field :other_exp %><br>
+<div class="form_data">
 
-      <%= f.label :credit_score %>
-      <%= f.text_field :credit_score %><br>
+      <%= f.label :loan_amount %><br>
+      $ <%= f.text_field :loan_amount,placeholder: "296250" %>
+<div class="popup">You may leave this blank and the loan amount will default to 80% of your Purchase Price. This is the maximum loan amount for a conforming loan without mortgage insurance. If you would like a lower loan amount please enter a value.</div>
+</div>
 
-      <%= f.label :purchase_price %>
-      <%= f.text_field :purchase_price %><br>
-
-      <%= f.label :loan_amount %>
-      <%= f.text_field :loan_amount %><br>
-
-      <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Submit", class: "btn btn-large btn-primary", id: "submit" %>
 <%end%>
+</form>
