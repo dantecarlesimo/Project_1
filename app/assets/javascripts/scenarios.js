@@ -44,7 +44,6 @@ var value3 = (function(){
   return approval_prob;
 })();
 
-
 $('#30_approval').append("<meter value="+value+" min='0' max='50'></meter>" );
 $('#30_approval_2').append("<meter value="+value2+" min='0' max='50'></meter>" );
 $('#30_approval_3').append("<meter value="+value3+" min='0' max='50'></meter>" );
