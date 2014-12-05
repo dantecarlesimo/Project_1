@@ -8,6 +8,9 @@ module ScenariosHelper
     end
   end
 
+  ## I like this method.  It makes sense to factor this out into a sharable
+  ## method.  It may be a good idea to call it something a little more
+  ## descriptive though.  loan_rates?
   def api_caller
     zwsid = ENV['ZILLOW_KEY']
     request = Typhoeus.get("http://www.zillow.com/webservice/GetRateSummary.htm?zws-id=#{zwsid}&output=json") 

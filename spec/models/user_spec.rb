@@ -29,6 +29,7 @@ describe User do
   end
 
   describe 'user name' do
+    ## spacing is off
       it 'should be present' do
        user = FactoryGirl.build(:user, first_name: nil)
        user.should_not be_valid

@@ -1,3 +1,5 @@
+## Good job validating here.
+
 class User < ActiveRecord::Base
 
   has_secure_password 

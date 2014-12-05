@@ -42,5 +42,8 @@ describe 'Scenarios Management' do
     end
 
   end
+
+  ## it would be nice to have a test to verify that authorization is working
+  ## properly.
   
 end

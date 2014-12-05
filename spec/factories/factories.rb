@@ -13,6 +13,7 @@ FactoryGirl.define do
   end
 
 
+  ## Awesome!
   factory :scenario do
     income 7000
     housing_exp 1000

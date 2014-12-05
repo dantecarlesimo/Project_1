@@ -9,4 +9,6 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
+
+## Good job.
 MortgageApp::Application.config.secret_token = ENV['SECRET_KEY_BASE']

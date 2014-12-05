@@ -3,6 +3,7 @@ class ScenariosController < ApplicationController
   include ScenariosHelper
 
   before_filter :signed_in_user, only: [:create, :new, :edit, :update, :destroy] #located in session helpers
+  ## Good job here on authorization
   before_filter :check_scenario_owner, only: [:edit, :update, :destroy, :show]
 
 
@@ -12,6 +13,9 @@ class ScenariosController < ApplicationController
 
   def create
     @scenario = current_user.scenarios.new scenario_params
+
+    ## This is the case where they just do the standard 20% 30 year fixed
+    ## right?
     if @scenario.loan_amount == nil || @scenario.loan_amount == ""
       @scenario.loan_amount = @scenario.purchase_price.to_f*0.8
     end
@@ -23,9 +27,15 @@ class ScenariosController < ApplicationController
     end
   end
 
+
+  ## It would be a good idea to put some of this logic into model methods
+  ## It is hard to follow the show code.  It would also be more testable
+  ## if the code is in a model. 
   def show
     @scenario = Scenario.find(params[:id])
     api_caller
+
+    ## For example, you could have a scenario.taxes, scenario.insurance, etc.
     #Tax and Insurance calculations
     @taxes = ((@scenario.purchase_price * 0.01188)/12).round(2)
     @insurance = ((@scenario.loan_amount * 0.0035)/12).round(2)
